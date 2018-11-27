@@ -20,7 +20,7 @@ SRC_URI += "file://99-aspeed-mbox.rules"
 SRC_URI += "file://99-aspeed-lpc-ctrl.rules"
 SRC_URI += "file://aspeed-lpc-ctrl-h.patch"
 
-SRCREV="406ee26ab27b5a28fa5fbd0e23a8a6cd548e0263"
+SRCREV="8493c33b1adbaf0adaa6bf2b7c1696e86a89ab1b"
 
 PROVIDES += "mboxctl"
 
@@ -46,6 +46,6 @@ SYSTEMD_SERVICE_${PN} += "mboxd.service"
 SYSTEMD_SERVICE_${PN} += "mboxd-reload@.service"
 SYSTEMD_LINK_${PN} += "${@compose_list(d, 'FMT', 'OBMC_CHASSIS_INSTANCES')}"
 
-# Enable virtual-pnor by DISTRO_FEATURE openpower-ubi-fs.
-PACKAGECONFIG_append_df-openpower-ubi-fs = "virtual-pnor"
+# Enable virtual-pnor by MACHINE_FEATURE openpower-ubi-fs.
+PACKAGECONFIG_append = "${@mf_enabled(d, 'openpower-ubi-fs', 'virtual-pnor')}"
 PACKAGECONFIG[virtual-pnor] = "--enable-virtual-pnor,--disable-virtual-pnor"
