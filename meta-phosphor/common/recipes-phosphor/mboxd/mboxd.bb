@@ -14,13 +14,14 @@ RDEPENDS_${PN} += "libsystemd"
 
 S = "${WORKDIR}/git"
 
-SRC_URI += "git://github.com/openbmc/mboxbridge.git"
+FOXCONN_BRANCH="test_build"
+SRC_URI += "git://github.com/nick24117/mboxbridge.git;branch=${FOXCONN_BRANCH}"
 
 SRC_URI += "file://99-aspeed-mbox.rules"
 SRC_URI += "file://99-aspeed-lpc-ctrl.rules"
 SRC_URI += "file://aspeed-lpc-ctrl-h.patch"
 
-SRCREV="d5f1d40f2ddf9234099b331e1d90c54ece0ee88b"
+SRCREV="df68d8d9d129149cbd592447dcf7817518ebb1a3"
 
 PROVIDES += "mboxctl"
 
