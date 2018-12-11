@@ -14,13 +14,14 @@ RDEPENDS_${PN} += "libsystemd"
 
 S = "${WORKDIR}/git"
 
-SRC_URI += "git://github.com/openbmc/phosphor-mboxd.git"
+FOXCONN_BRANCH = "foxconn-g2_new"
+SRC_URI += "git://github.com/foxconn-bmc-tpa/phosphor-mboxd.git;branch=${FOXCONN_BRANCH}"
 
 SRC_URI += "file://99-aspeed-mbox.rules"
 SRC_URI += "file://99-aspeed-lpc-ctrl.rules"
 SRC_URI += "file://aspeed-lpc-ctrl-h.patch"
 
-SRCREV="8493c33b1adbaf0adaa6bf2b7c1696e86a89ab1b"
+SRCREV="bc74fe80386133228969e767e4ad6ac6440a9ec0"
 
 PROVIDES += "mboxctl"
 
